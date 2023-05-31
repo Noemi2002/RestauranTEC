@@ -38,8 +38,8 @@ extraer_valor(PalabraClave, [_|Resto], Valor) :-
 % Ejemplo de uso
 
 % Consulta para obtener la dirección del restaurante 'Mcdonalds'
-?- restaurante('Mcdonalds', Datos),
-   extraer_valor(direccion, Datos, Direccion).
+%?- restaurante('Mcdonalds', Datos),
+ %  extraer_valor(direccion, Datos, Direccion).
 
 % Resultado:
 % Datos = [menu, 'comida rapida', [hamburguesas, pollo_frito, nuggets, wraps, ensaladas, papas, refresco, milkshake, cafe]],
