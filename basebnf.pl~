@@ -41,7 +41,7 @@ preposicion(["Nos"|Rest], Rest).
 preposicion(["nos"|Rest], Rest).
 preposicion(["Les"|Rest], Rest).
 preposicion(["les"|Rest], Rest).
-preposicion(con).
+
 
 pronombre(["Yo"|Rest], Rest).
 pronombre(["yo"|Rest], Rest).
@@ -76,11 +76,9 @@ articulo(unos).
 articulo(unas).
 articulo(una).
 
-
 verbo(comer).
 verbo(tomar).
 verbo(visitar).
-
 
 abvervio(hoy).
 abvervio(mañana).
@@ -94,8 +92,6 @@ abvervio(tarde).
 abvervio(temprano).
 abvervio(noche).
 
-
-sustantivos(mascotas).
 
 
 sugerencias(podrías).
