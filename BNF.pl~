@@ -23,9 +23,3 @@ preposicion --> [en_la_zona_de].
 interpretar(Consulta) :-
     phrase(consulta, Consulta).
 
-
-
-
-
-
-
