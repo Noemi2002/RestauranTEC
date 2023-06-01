@@ -58,7 +58,7 @@ obtenerLugar(Restaurante, Lugar) :-restaurante(Restaurante, _, _, [lugar, Lugar]
 obtener_disposiciones(Restaurante, Disposiciones) :-restaurante(Restaurante, _, _, _, [disposiciones, Disposiciones]).
 
 %Buscar una comida específica
-comidaEspecifica(Restaurante, TipoComida) :-restaurante(Restaurante, [_, TipoCocina, _], _, _, _),  member(TipoComida, TipoCocina).
+comidaEspecifica(Restaurante, TipoComida) :-restaurante(Restaurante, [_, _, Menu|_], _, _, _),  member(TipoComida, TipoCocina).
 
 
 
