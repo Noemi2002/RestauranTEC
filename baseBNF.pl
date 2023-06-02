@@ -1,7 +1,7 @@
-% Elementos léxicos
+% Elementos lÃ©xicos
 :-consult(basese).
 
-%Saludos
+% Saludos
 saludar(["Hola"|Rest], Rest).
 saludar(["hola"|Rest], Rest).
 saludar(["Hey"|Rest], Rest).
@@ -11,7 +11,7 @@ saludar(["Buenas"|Rest], Rest).
 saludar(["buenos"|Rest], Rest).
 saludar(["buenas"|Rest], Rest).
 
-%Despedidas
+% Despedidas
 despedir(["Adios"|Rest], Rest).
 despedir(["adios"|Rest], Rest).
 despedir(["Chao"|Rest], Rest).
@@ -25,12 +25,12 @@ despedir(["Gracias"|Rest], Rest).
 despedir(["Hasta"|Rest], Rest).
 despedir(["hasta"|Rest], Rest).
 
-%Prerposiciones
+% Prerposiciones
 preposicion(["En"|Rest], Rest).
 preposicion(["en"|Rest], Rest).
 
 
-%Verbos
+% Verbos
 verbo(["Quiero"|Rest], Rest).
 verbo(["quiero"|Rest], Rest).
 verbo(["Quisiera"|Rest], Rest).
@@ -51,13 +51,13 @@ preposicion(["Les"|Rest], Rest).
 preposicion(["les"|Rest], Rest).
 preposicion(con).
 
-%Pronombres
+% Pronombres
 pronombre(["Yo"|Rest], Rest).
 pronombre(["yo"|Rest], Rest).
 pronombre(["Ella"|Rest], Rest).
 pronombre(["ella"|Rest], Rest).
-pronombre(["Él"|Rest], Rest).
-pronombre(["él"|Rest], Rest).
+pronombre(["el"|Rest], Rest).
+pronombre(["el"|Rest], Rest).
 pronombre(["Nosotros"|Rest], Rest).
 pronombre(["nosotros"|Rest], Rest).
 pronombre(["Ellos"|Rest], Rest).
@@ -65,7 +65,7 @@ pronombre(["ellos"|Rest], Rest).
 pronombre(["Ellas"|Rest], Rest).
 pronombre(["ellas"|Rest], Rest).
 
-%Artículos
+% ArtÃ­culos
 articulo(el).
 articulo(los).
 articulo(la).
@@ -83,11 +83,11 @@ verbo(visitar).
 
 %Adverbios
 aderbio(hoy).
-adverbio(mañana).
+adverbio(maÃ±ana).
 adverbio(cerca).
 adverbio(lejos).
 adverbio(pronto).
-adverbio(también).
+adverbio(tambiï¿½n).
 adverbio(bueno).
 adverbio(malo).
 adverbio(tarde).
@@ -98,16 +98,10 @@ adverbio(si).
 
 
 
-
 sustantivos(mascotas).
 
 
-sugerencias(podrías).
-
-
-
-
-
+sugerencias(podrÃ­as).
 
 
 % adverbios(acaso, quiza, probablemente, posiblemente, tampoco, nunca,
@@ -120,10 +114,10 @@ sugerencias(podrías).
 % preposiciones(a, ante, bajo, con, contra, de, desde, durante, en,
 % entre, hacia, hasta, para, por, segun, durante, mediante, sobre, sin,
 % tras, pro, con, tras).
-%interjecciones(si, no, oh, ay, uf, hola, adios).
+% interjecciones(si, no, oh, ay, uf, hola, adios).
 % sustantivos(gato, perro, casa, mesa, silla, libro, auto, ciudad, pais,
 % persona).
-% adjetivos(grande, pequeño, hermoso, feo, feliz, triste, inteligente,
+% adjetivos(grande, pequeÃ±o, hermoso, feo, feliz, triste, inteligente,
 % tonto, divertido, aburrido).
 
 
