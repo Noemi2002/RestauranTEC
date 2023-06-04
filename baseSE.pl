@@ -3,23 +3,23 @@
 
 %Definición de la base de datos
 %Hechos para la base de datos de restaurantes
-restaurante('Mcdonalds', [menu, 'comida rapida', [hamburguesas, pollo_frito, nuggets, wraps, ensaladas, papas, refresco, milkshake, cafe]], [direccion, 'costado sur de plaza mayor, avenida 2'], [lugar, 'Cartago'], [disposiciones, ['No se aceptan mascotas', 'Hay autoservicio']]).
+restaurante('Mcdonalds', [menu, 'comida rapida', [hamburguesas, 'pollo frito', nuggets, wraps, ensaladas, papas, refresco, milkshake, cafe]], [direccion, 'costado sur de plaza mayor, avenida 2'], [lugar, 'Cartago'], [disposiciones, ['No se aceptan mascotas', 'Hay autoservicio']]).
 
 restaurante('La princesa marina', [menu, 'mariscos', [pescado, camarones, langosta, calamares, pulpo, mejillones, ostras]], [direccion, 'calle principal, puerto viejo'], [lugar, 'Limon'], [disposiciones, ['Terraza con vista al mar', 'Aceptan reservaciones']]).
 
-restaurante('Papajohns', [menu, 'italiana', [pizza, pasta, ensaladas, lasagna, calzone, tiramisu, gelato]], [direccion, 'avenida central, san jose'], [lugar, 'San Jose'], [disposiciones, ['Menu para niños', 'Entrega a domicilio']]).
+restaurante('Papajohns', [menu, 'comida italiana', [pizza, pasta, ensaladas, lasagna, calzone, tiramisu, gelato]], [direccion, 'avenida central, san jose'], [lugar, 'San Jose'], [disposiciones, ['Menu para niños', 'Entrega a domicilio']]).
 
-restaurante('Sushi Ko', [menu, 'japonesa', [sopa, gyozas, ostras, 'Spicy Edamame', 'Edamame Binchotan' ]], [direccion, 'METRO CENTRO, San José'], [lugar, 'San Jose'], [disposiciones, ['Comida artesanal', 'Comida para llevar']]).
+restaurante('Sushi Ko', [menu, 'comida japonesa', [sopa, gyozas, ostras, 'Spicy Edamame', 'Edamame Binchotan' ]], [direccion, 'METRO CENTRO, San José'], [lugar, 'San Jose'], [disposiciones, ['Comida artesanal', 'Comida para llevar']]).
 
-restaurante('La Esquina de Buenos Aires', [menu, argenita, [morcilla, chorizo, chinchulin, provoleta, lomito, entraña, ensaladas, vino]], [direccion, 'Iglesia Nuestra Señora de la Soledad, Calle 11 esquina Av. 4 Detrás de la, San José'], [lugar, 'Heredia'], [disposiciones, ['Pedidos por whatsapp']]).
+restaurante('La Esquina de Buenos Aires', [menu, 'comida argentina', [morcilla, chorizo, chinchulin, provoleta, lomito, entraña, ensaladas, vino]], [direccion, 'Iglesia Nuestra Señora de la Soledad, Calle 11 esquina Av. 4 Detrás de la, San José'], [lugar, 'Heredia'], [disposiciones, ['Pedidos por whatsapp']]).
 
-restaurante('Stiefel Pub', [menu, alemana,['cervezas artesanales',pizza, alistas, papas]], [direccion, 'Av. 26, San Jose, Escazú'], [lugar, 'San Jose'], [disposiciones, ['comida de bar', 'Entrega a domicilio', 'Se permiten mascotas']]).
+restaurante('Stiefel Pub', [menu, 'comida alemana',['cervezas artesanales',pizza, alistas, papas]], [direccion, 'Av. 26, San Jose, Escazú'], [lugar, 'San Jose'], [disposiciones, ['comida de bar', 'Entrega a domicilio', 'Se permiten mascotas']]).
 
-restaurante('Tin Jo', [menu, 'asiática (chinos, tailandeses, vietnamitas)', [camarones, ramen, wantan, sushi, samosas]], [direccion, 'Calle 11, entre Avs. 6 y 8, C. 11, Provincia de San Jose'], [lugar, 'San Jose'], [disposiciones, ['Se puede pedir desde el auto', 'Se tiene que hacer reservación']]).
+restaurante('Tin Jo', [menu, 'comida asiática', [camarones, ramen, wantan, sushi, samosas]], [direccion, 'Calle 11, entre Avs. 6 y 8, C. 11, Provincia de San Jose'], [lugar, 'San Jose'], [disposiciones, ['Se puede pedir desde el auto', 'Se tiene que hacer reservación']]).
 
-restaurante('Veggie Delights', [menu, vegana, ['Burgers veganas', 'Ensaladas frescas', 'Wraps de verduras', 'Batidos naturales']], [direccion, 'WWHH+PPR, González Lahmann, San Jose'], [lugar, 'San Jose'],[disposiciones, ['Comida para llevar o en el lugar ']]).
+restaurante('Veggie Delights', [menu, 'comida vegana', ['Burgers veganas', ensaladas, 'Wraps de verduras', batidos]], [direccion, 'WWHH+PPR, González Lahmann, San Jose'], [lugar, 'San Jose'],[disposiciones, ['Comida para llevar o en el lugar ']]).
 
-restaurante('La Casona Mexicana', [menu, mexicana, [tacos, alambres, burritos, sopas, postres, parrilla, cocteles, tequila, mezcal]], [direccion, '300m Este del Puente Bailey, carretera al Volcán Irazú, Vía 219, Provincia de Cartago, Cartago'], [lugar, 'Cartago'], [disposiciones, ['Se requiere reservación']]).
+restaurante('La Casona Mexicana', [menu, 'comida mexicana', [tacos, alambres, burritos, sopas, postres, parrilla, cocteles, tequila, mezcal]], [direccion, '300m Este del Puente Bailey, carretera al Volcán Irazú, Vía 219, Provincia de Cartago, Cartago'], [lugar, 'Cartago'], [disposiciones, ['Se requiere reservación']]).
 
 restaurante('PetFriendly Bistro', [menu, 'Comida gourmet y opciones sin gluten', ['Salmón a la parrilla', 'Ensalada de quinoa', 'Postre sin azúcar']], [direccion, 'Santa Ana'], [lugar, 'San Jose'], [disposiciones, ['Pet-friendly', 'Área específica para mascotas']]).
 

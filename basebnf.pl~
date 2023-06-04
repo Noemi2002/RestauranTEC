@@ -1,14 +1,20 @@
 % Elementos léxicos
+:-consult(basese).
 
 %Saludos
-saludar(["Hola"|Rest], Rest).
-saludar(["hola"|Rest], Rest).
-saludar(["Hey"|Rest], Rest).
-saludar(["hey"|Rest], Rest).
-saludar(["Buenos"|Rest], Rest).
-saludar(["Buenas"|Rest], Rest).
-saludar(["buenos"|Rest], Rest).
-saludar(["buenas"|Rest], Rest).
+saludar1(["Hola"|Rest], Rest).
+saludar1(["hola"|Rest], Rest).
+saludar1(["Hey"|Rest], Rest).
+saludar1(["hey"|Rest], Rest).
+
+saludar2(["Buenos"|Rest], Rest).
+saludar2(["buenos"|Rest], Rest).
+saludo4(["dias"|Rest], Rest).
+
+saludar3(["Buenas"|Rest], Rest).
+saludar3(["buenas"|Rest], Rest).
+saludo5(["tardes"|Rest], Rest).
+saludo5(["noches"|Rest], Rest).
 
 %Despedidas
 despedir(["Adios"|Rest], Rest).
@@ -29,7 +35,22 @@ preposicion(["En"|Rest], Rest).
 preposicion(["en"|Rest], Rest).
 
 
-%Verbos
+%Verbos (arreglarlos)
+
+%%Verbo
+verbo(["comer"|Rest], Rest).
+verbo(["desayunar"|Rest], Rest).
+verbo(["almorzar"|Rest], Rest).
+verbo(["cenar"|Rest], Rest).
+verbo(["tomar"|Rest], Rest).
+
+
+verbo(["visitar"|Rest], Rest).
+verbo(["querer"|Rest], Rest).
+%conjugado(querer, queremos, n). %n -> nosotros
+
+
+
 verbo(["Quiero"|Rest], Rest).
 verbo(["quiero"|Rest], Rest).
 verbo(["Quisiera"|Rest], Rest).
@@ -40,6 +61,12 @@ verbo(["Quisieran"|Rest], Rest).
 verbo(["quisieran"|Rest], Rest).
 verbo(["Hay"|Rest], Rest).
 verbo(["hay"|Rest], Rest).
+verbo(["Estamos"|Rest], Rest).
+verbo(["estamos"|Rest], Rest).
+
+sinonimo(tomar, beber).
+
+
 
 
 preposicion(["Me"|Rest], Rest).
@@ -64,21 +91,9 @@ pronombre(["ellos"|Rest], Rest).
 pronombre(["Ellas"|Rest], Rest).
 pronombre(["ellas"|Rest], Rest).
 
-%Artículos
-articulo(el).
-articulo(los).
-articulo(la).
-articulo(las).
-articulo(un).
-articulo(uno).
-articulo(unos).
-articulo(unas).
-articulo(una).
 
-%Verbo
-verbo(comer).
-verbo(tomar).
-verbo(visitar).
+
+
 
 %Adverbios
 aderbio(hoy).
@@ -96,10 +111,35 @@ adverbio(no).
 adverbio(si).
 
 
-sustantivos(mascotas).
+
+
+sustantivo(['mascotas'|Rest], Rest, f).
+sustantivo(['opcion'|Rest], Rest, f).
+sustantivo(['opciones'|Rest], Rest, f).
+
+sustantivo(['comida'|Rest], Rest, f).
+sustantivo(['comida rápida'|Rest], Rest, f).
+sustantivo(['maricos'|Rest], Rest, m).
+sustantivo([ Rest|'italiana'], Rest, f).
+sustantivo([Rest|'japonesa'], Rest, f).
+sustantivo([Rest|'argentina'], Rest, f).
+sustantivo([Rest|'alemana'], Rest, f).
+sustantivo([Rest|'asiatica'], Rest, f).
+sustantivo([Rest|'mexicana'], Rest, f).
+sustantivo([Rest|'vegana'], Rest, f).
+sustantivo([Rest|'Comida gourmet y opciones sin gluten'], Rest, f).
+
 
 
 sugerencias(podrías).
+
+determinante(["alguna"|Rest], Rest, f).
+determinante(["alguno"|Rest], Rest, m).
+determinante(["la"|Rest], Rest, f).
+determinante(["las"|Rest], Rest, f).
+determinante(["una"|Rest], Rest, f).
+determinante(["unas"|Rest], Rest, f).
+determinante(["tengo"|Rest], Rest, no).
 
 
 

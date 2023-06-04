@@ -1,7 +1,34 @@
-% Elementos léxicos
 :-consult(basebnf).
+:-consult(basese).
 
 % Reglas gramaticales
+oracion(Oracion, Resultado):-saludo(Oracion, Resultado).
+oracion(Oracion, Resultado):-saludo(Oracion, Res1), sintagma(Res1, Resultado).
+
+saludo(Oracion, Resultado):- saludar1(Oracion, Resultado).
+saludo(Oracion, Resultado):- saludar2(Oracion, Res1),  saludar4(Oracion, Resultado).
+saludo(Oracion, Resultado):- saludar3(Oracion, Res1),  saludar5(Oracion, Resultado).
+
+sintagma().
+
+sintagma_nominal(Oracion, Resultado):-determinante(Oreacion, Res1, Genero), sustantivo(Res1, Resultado, Genero).
+sintagma_nominal(Oracion, Resultado):-determinante(Oreacion, Res1, _), sustantivo(Res1, Resultado, _). %Sin tomar en cuenta el género
+sintagma_nominal(Oracion, Resultado):-determinante(Oreacion, Res1, Genero), verbo(Res1, Resultado).
+
+
+
+
+
+sintagma_descriptivo.
+sintagma_preposicional.
+
+
+
+
+
+
+
+
 oracion --> saludo.
 oracion --> despedida.
 oracion --> saludo, pregunta.
@@ -56,13 +83,6 @@ sustantivo([Sustantivo|Rest], Rest) :- sustantivos(Sustantivo).
 
 % Regla de prueba
 test :- write('Ingrese una oración: '), read(X), oracion(X, []), write('La oración es válida.'), nl, test.
-
-
-
-
-
-
-
 
 
 
