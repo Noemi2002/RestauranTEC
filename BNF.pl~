@@ -2,6 +2,7 @@
 :-consult('basese.pl').
 
 % Reglas gramaticales
+
 oracion(Oracion, Resultado) :- saludo(Oracion, Resultado).
 oracion(Oracion, Resultado) :- saludo(Oracion, Res1), sintagma(Res1, Resultado).
 oracion(Oracion, Resultado) :- saludo(Oracion, Res1), sustantivo(Res1, Resultado, _).
@@ -19,59 +20,73 @@ saludo(Oracion, Resultado) :- saludar1(Oracion, Resultado).
 saludo(Oracion, Resultado) :- saludar2(Oracion, Res1), saludar3(Res1, Resultado).
 saludo(Oracion, Resultado) :- saludar4(Oracion, Res1), saludar5(Res1, Resultado).
 
-despedida(Oracion, Resultado) :- despedir(Oracion, Resultado).
+despedida(Oracion, Resultado) :- despedir1(Oracion, Resultado).
+despedida(Oracion, Resultado) :- despedir5(Oracion, Resultado).
+despedida(Oracion, Resultado) :- despedir2(Oracion, Res1), despedir3(Res1, Resultado).
+despedida(Oracion, Resultado) :- despedir4(Oracion, Res1), despedir5(Res1, Resultado).
 
 sintagma(Oracion, Resultado) :- sintagma_nominal(Oracion, Res1), sintagma_verbal(Res1, Resultado).
 sintagma(Oracion, Resultado) :- sintagma_nominal(Oracion, Res1), sintagma_descriptivo(Res1, Resultado).
 
 sintagma_preposicional(Oracion, Resultado) :- preposicion(Oracion, Res1), sintagma_nominal(Res1, Resultado).
+sintagma_preposicional(Oracion, Resultado) :- preposicion(Oracion, Res1), adjetivo(Res1, Res2), verbo(Res2, Resultado).
 
 sintagma_descriptivo(Oracion, Resultado) :- adverbio(Oracion, Res1), verbo(Res1, Resultado).
+sintagma_descriptivo(Oracion, Resultado):- verbo(Oracion, Rest1), adjetivo(Rest1, Resultado).
 sintagma_descriptivo(Oracion, Resultado) :- adverbio(Oracion, Res1), determinante(Res1, Resultado, _).
 
-sintagma_nominal(Oracion, Resultado) :- determinante(Oracion, Res1, Genero), sustantivo(Res1, Resultado, Genero).
-sintagma_nominal(Oracion, Resultado) :- determinante(Oracion, Res1, _), sustantivo(Res1, Resultado, _).
-sintagma_nominal(Oracion, Resultado) :- determinante(Oracion, Res1, Genero), verbo(Res1, Resultado).
 
-sintagma_verbal(Oracion, Resultado) :- verbo(Oracion, Resultado).
-sintagma_verbal(Oracion, Resultado) :- verbo(Oracion, Res1), sintagma_nominal(Res1, Resultado).
-sintagma_verbal(Oracion, Resultado) :- verbo(Oracion, Res1), sintagma_nominal(Res1, Resultado).
-sintagma_verbal(Oracion, Resultado) :- verbo(Oracion, Res1), sintagma_nominal(Res1, Resultado).
-sintagma_verbal(Oracion, Resultado) :- verbo(Oracion, Res1), sintagma_nominal(Res1, Resultado).
+sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Resultado, _).
+sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), (Res1, Resultado,_).
+sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Resultado).
+sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Res2), sintagma_nominal(Res2, Resultado).
+sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Res2), sintagma_verbal(Res2, Resultado).
+sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Res2), sintagma_descriptivo(Res2, Resultado).
+sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Res2), sintagma_preposicional(Res2, Resultado).
+sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Res2), sintagma_nominal(Res2, Res3), sintagma_preposicional(Res3, Resultado).
 
-% Reglas adicionales basadas en la base de datos
+sintagma_verbal(Oracion, Resultado):- verbo(Oracion, Resultado).
+sintagma_verbal(Oracion, Resultado):- verbo(Oracion, Rest1), sintagma_nominal(Rest1, Resultado).
+sintagma_verbal(Oracion, Resultado):- verbo(Oracion, Rest1), sintagma_descriptivo(Rest1, Resultado).
+sintagma_verbal(Oracion, Resultado):- verbo(Oracion, Rest1), sustantivo(Rest1, Resultado, _).
+sintagma_verbal(Oracion, Resultado):- verbo(Oracion, Rest1), adjetivo(Rest1, Resultado).
 
-%saludo1([Saludo|Rest], Rest) :- saludar1([Saludo|Rest], Rest).
-%saludo1([Saludo|Rest], Rest) :- saludar2([Saludo|Rest], Rest).
-%saludo1([Saludo|Rest], Rest) :- saludar3([Saludo|Rest], Rest).
+% Añade aquí otras reglas que definas para sintagma_nominal
 
-%saludo4([Saludo|Rest], Rest) :- saludo4([Saludo|Rest], Rest).
+% Ejemplos de reglas adicionales:
+% sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Resultado, _), ...
+% sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Resultado), ...
 
-%saludo5([Saludo|Rest], Rest) :- saludar5([Saludo|Rest], Rest).
+% Definición de palabras
 
-sustantivo([Sustantivo|Rest], Rest, Genero) :- sustantivo([Sustantivo|Rest], Rest, Genero).
-sustantivo([Sustantivo|Rest], Rest, Genero) :- sustantivo([Sustantivo|Rest], Rest, _).
+% Aquí puedes definir las reglas para los diferentes términos del lenguaje.
 
-determinante([Determinante|Rest], Rest, Genero) :- determinante([Determinante|Rest], Rest, Genero).
-determinante([Determinante|Rest], Rest, Genero) :- determinante([Determinante|Rest], Rest, _).
+% Ejemplo:
+% sustantivo(Oracion, Resultado, Genero) :- member(Oracion, ["hamburguesa"]), Resultado = "hamburguesa", Genero = "femenino".
 
-preposicion([Preposicion|Rest], Rest) :- preposicion([Preposicion|Rest], Rest).
 
-verbo([Verbo|Rest], Rest) :- verbo([Verbo|Rest], Rest).
 
-adverbio([Adverbio|Rest], Rest) :- adverbio([Adverbio|Rest], Rest).
-
-despedir([Despedida|Rest], Rest) :- despedir([Despedida|Rest], Rest).
 
 % Predicado para probar oraciones
+test :- write("Ingrese una oración: "), read(Oracion), oracion(Oracion, Resultado), write("La oración es válida."), nl, nl, test.
 
-test :-
-    write('Ingrese una oración: '),
-    read(X),
-    oracion(X, []),
-    write('La oración es válida.'),
-    nl,
-    test.
+
+%test :-
+   % write('Ingrese una oración: '),
+    %read(X),
+    %oracion(X, []),
+    %write('La oración es válida.'),
+    %nl,
+    %test.
+
+
+
+
+
+
+
+
+
 
 
 

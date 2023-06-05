@@ -17,59 +17,103 @@ saludar5(["tardes"|Rest], Rest).
 saludar5(["noches"|Rest], Rest).
 
 % Despedidas
-despedir(["Adios"|Rest], Rest).
-despedir(["adios"|Rest], Rest).
-despedir(["Chao"|Rest], Rest).
-despedir(["chao"|Rest], Rest).
-despedir(["Hasta"|Rest], Rest).
-despedir(["hasta"|Rest], Rest).
-despedir(["luego"|Rest], Rest).
-despedir(["Muchas"|Rest], Rest).
-despedir(["muchas"|Rest], Rest).
-despedir(["Gracias"|Rest], Rest).
-despedir(["Hasta"|Rest], Rest).
-despedir(["hasta"|Rest], Rest).
+despedir1(["Adios"|Rest], Rest).
+despedir1(["adios"|Rest], Rest).
+despedir1(["Chao"|Rest], Rest).
+despedir1(["chao"|Rest], Rest).
+
+despedir2(["Hasta"|Rest], Rest).
+despedir2(["hasta"|Rest], Rest).
+despedir3(["luego"|Rest], Rest).
+
+despedir4(["Muchas"|Rest], Rest).
+despedir4(["muchas"|Rest], Rest).
+despedir5(["Gracias"|Rest], Rest).
+
 
 % Preposiciones
 preposicion(["En"|Rest], Rest).
 preposicion(["en"|Rest], Rest).
+preposicion(["de"|Rest], Rest).
+preposicion(["para"|Rest], Rest).
+preposicion(["con"|Rest], Rest).
+preposicion(["por"|Rest], Rest).
 
 % Verbos
-verbo(["comer"|Rest], Rest).
-verbo(["desayunar"|Rest], Rest).
-verbo(["almorzar"|Rest], Rest).
-verbo(["cenar"|Rest], Rest).
-verbo(["tomar"|Rest], Rest).
-verbo(["visitar"|Rest], Rest).
-verbo(["querer"|Rest], Rest).
-verbo(["Quiero"|Rest], Rest).
-verbo(["quiero"|Rest], Rest).
-verbo(["Quisiera"|Rest], Rest).
-verbo(["quisiera"|Rest], Rest).
-verbo(["Queremos"|Rest], Rest).
-verbo(["queremos"|Rest], Rest).
-verbo(["Quisieran"|Rest], Rest).
-verbo(["quisieran"|Rest], Rest).
 verbo(["Hay"|Rest], Rest).
 verbo(["hay"|Rest], Rest).
-verbo(["Estamos"|Rest], Rest).
-verbo(["estamos"|Rest], Rest).
 
-sinonimo(tomar, beber).
+verbo(Verbo, Conjugaciones, Rest) :-
+    member(Verbo, ["comer", "desayunar", "almorzar", "cenar", "tomar", "beber", "visitar", "querer", "estar", "ir", "ingerir", "consumir", "degustar", "buscar", "recomendar", "haber"]),
+    member(Conjugaciones, [
+        ['como', 'comes', 'come', 'comemos', 'comen', 'comería', 'comerían'],
+        ['desayuno', 'desayunas', 'desayuna', 'desayunamos', 'desayunan', 'desayunaría', 'desayunarían'],
+        ['almuerzo', 'almuerzas', 'almuerza', 'almorzamos', 'almuerzan', 'almorzaría', 'almorzarían'],
+        ['ceno', 'cenas', 'cena', 'cenamos', 'cenan', 'cenaría', 'cenarían'],
+        ['tomo', 'tomas', 'toma', 'tomamos', 'toman', 'tomaría', 'tomarían'],
+        ['bebo', 'bebes', 'bebe', 'bebemos', 'beben', 'bebería', 'beberían'],
+        ['visito', 'visitas', 'visita', 'visitamos', 'visitan', 'visitaría', 'visitarían'],
+        ['quiero', 'quieres', 'quiere', 'queremos', 'quieren', 'querría', 'querrían', 'quisiera', 'quisieran'],
+        ['estoy', 'estás', 'está', 'estamos', 'están', 'estaría', 'estarían'],
+        ['voy', 'vas', 'va', 'vamos', 'van', 'iría', 'irían'],
+        ['ingiero', 'ingieres', 'ingiere', 'ingerimos', 'ingieren', 'ingeriría', 'ingerirían'],
+        ['consumo', 'consumes', 'consume', 'consumimos', 'consumen', 'consumiría', 'consumirían'],
+        ['degusto', 'degustas', 'degusta', 'degustamos', 'degustan', 'degustaría', 'degustarían'],
+        ['busco', 'buscas', 'busca', 'buscamos', 'buscan', 'buscaría', 'buscarían'],
+        ['recomiendo', 'recomiendas', 'recomienda', 'recomendamos', 'recomiendan', 'recomendaría', 'recomendarían'],
+        ['hay']
+    ]),
+    Rest = [].
+
+
+
+
+
+
+
+
+
+
+
+%verbo(["comer"|Rest], Rest).
+%verbo(["desayunar"|Rest], Rest).
+%verbo(["almorzar"|Rest], Rest).
+%verbo(["cenar"|Rest], Rest).
+%verbo(["tomar"|Rest], Rest).
+%verbo(["visitar"|Rest], Rest).
+%verbo(["querer"|Rest], Rest).
+
+%Hacer sinónimos
+%verbo(["Quiero"|Rest], Rest).
+%verbo(["quiero"|Rest], Rest).
+%verbo(["Quisiera"|Rest], Rest).
+%verbo(["quisiera"|Rest], Rest).
+%verbo(["Queremos"|Rest], Rest).
+%verbo(["queremos"|Rest], Rest).
+%verbo(["Quisieran"|Rest], Rest).
+%verbo(["quisieran"|Rest], Rest).
+
+%verbo(["Estamos"|Rest], Rest).
+%verbo(["estamos"|Rest], Rest).
+
+%Sinónimos
+%sinonimo(tomar, beber).
 
 % Pronombres
-pronombre(["Yo"|Rest], Rest).
-pronombre(["yo"|Rest], Rest).
-pronombre(["Ella"|Rest], Rest).
-pronombre(["ella"|Rest], Rest).
-pronombre(["Él"|Rest], Rest).
-pronombre(["él"|Rest], Rest).
-pronombre(["Nosotros"|Rest], Rest).
-pronombre(["nosotros"|Rest], Rest).
-pronombre(["Ellos"|Rest], Rest).
-pronombre(["ellos"|Rest], Rest).
-pronombre(["Ellas"|Rest], Rest).
-pronombre(["ellas"|Rest], Rest).
+pronombre(Pronombre, Rest) :- member(Pronombre, ["Yo", "yo", "Él", "él", "Ella", "ella", "Nosotros", "nosotros", "Vosotros", "vosotros", "Ellos", "ellos", "Ellas", "ellas"]), Rest = [].
+
+%pronombre(["Yo"|Rest], Rest).
+%pronombre(["yo"|Rest], Rest).
+%pronombre(["Ella"|Rest], Rest).
+%pronombre(["ella"|Rest], Rest).
+%pronombre(["Él"|Rest], Rest).
+%pronombre(["él"|Rest], Rest).
+%pronombre(["Nosotros"|Rest], Rest).
+%pronombre(["nosotros"|Rest], Rest).
+%pronombre(["Ellos"|Rest], Rest).
+%pronombre(["ellos"|Rest], Rest).
+%pronombre(["Ellas"|Rest], Rest).
+%pronombre(["ellas"|Rest], Rest).
 
 % Adverbios
 adverbio(['hoy'|Rest], Rest).
@@ -87,8 +131,14 @@ adverbio(['no'|Rest], Rest).
 adverbio(['No'|Rest], Rest).
 adverbio(['si'|Rest], Rest).
 adverbio(['Si'|Rest], Rest).
+adverbio(['muy'|Rest], Rest).
+adverbio(['bastante'|Rest], Rest).
 
 % Sustantivos
+sustantivo(['restaurante'|Rest], Rest, f).
+sustantivo(['comida'|Rest], Rest, f).
+sustantivo(['bebida'|Rest], Rest, f).
+sustantivo(['lugar'|Rest], Rest, f).
 sustantivo(['mascotas'|Rest], Rest, f).
 sustantivo(['opcion'|Rest], Rest, f).
 sustantivo(['opciones'|Rest], Rest, f).
@@ -102,7 +152,7 @@ sustantivo([Rest|'alemana'], Rest, f).
 sustantivo([Rest|'asiatica'], Rest, f).
 sustantivo([Rest|'mexicana'], Rest, f).
 sustantivo([Rest|'vegana'], Rest, f).
-sustantivo([Rest|'Comida gourmet y opciones sin gluten'], Rest, f).
+sustantivo(['Comida gourmet y opciones sin gluten'|Rest], Rest, f).
 
 % Determinantes
 determinante(["alguna"|Rest], Rest, f).
@@ -112,6 +162,16 @@ determinante(["las"|Rest], Rest, f).
 determinante(["una"|Rest], Rest, f).
 determinante(["unas"|Rest], Rest, f).
 determinante(["tengo"|Rest], Rest, no).
+determinante(["el"|Rest], Rest, f).
+determinante(["los"|Rest], Rest, f).
+
+%Adejativos
+adjetivo(delicioso).
+adjetivo(exquisito).
+adjetivo(saludable).
+adjetivo(fresco).
+adjetivo(acogedor).
+adjetivo(tradicional).
 
 
 
