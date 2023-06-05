@@ -2,19 +2,19 @@
 :-consult('basese.pl').
 
 % Saludos
-saludar1(["Hola"|Rest], Rest).
-saludar1(["hola"|Rest], Rest).
-saludar1(["Hey"|Rest], Rest).
-saludar1(["hey"|Rest], Rest).
+saludar(["Hola"|Rest], Rest).
+saludar(["hola"|Rest], Rest).
+saludar(["Hey"|Rest], Rest).
+saludar(["hey"|Rest], Rest).
 
-saludar2(["Buenos"|Rest], Rest).
-saludar2(["buenos"|Rest], Rest).
-saludar3(["dias"|Rest], Rest).
+saludar1(["Buenos"|Rest], Rest).
+saludar1(["buenos"|Rest], Rest).
+saludar1(["Buenas"|Rest], Rest).
+saludar1(["buenas"|Rest], Rest).
 
-saludar4(["Buenas"|Rest], Rest).
-saludar4(["buenas"|Rest], Rest).
-saludar5(["tardes"|Rest], Rest).
-saludar5(["noches"|Rest], Rest).
+saludar2(["dias"|Rest], Rest).
+saludar2(["tardes"|Rest], Rest).
+saludar2(["noches"|Rest], Rest).
 
 % Despedidas
 despedir(["Adios"|Rest], Rest).
@@ -70,6 +70,14 @@ pronombre(["Ellos"|Rest], Rest).
 pronombre(["ellos"|Rest], Rest).
 pronombre(["Ellas"|Rest], Rest).
 pronombre(["ellas"|Rest], Rest).
+
+% Nombres Propios
+propio(["Andres"|Rest], Rest).
+propio(["andres"|Rest], Rest).
+propio(["Greivin"|Rest], Rest).
+propio(["greivin"|Rest], Rest).
+propio(["Noemi"|Rest], Rest).
+propio(["noemi"|Rest], Rest).
 
 % Adverbios
 adverbio(['hoy'|Rest], Rest).

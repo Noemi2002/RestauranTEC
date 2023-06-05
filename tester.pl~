@@ -1,0 +1,25 @@
+:-consult('bnf.pl').
+
+start :- write("Hola, Binevenido a RestauranTec. Que desea comer hoy?"), nl, read(Oracion), oracion(Oracion, Resultado), split(Oracion), nl, where.
+
+where :- write("En que lugar desea comer hoy?"), read(Oracion), oracion(Oracion, Resultado), split(Oracion), nl.
+
+
+input :- read(X),split(X).
+
+split(X) :- split_string(X,' ',',',Y),verify(Y),oracion(Y,[]),input.
+
+verify(Y):- incomida(Y).
+verify(Y):- inlugar(Y).
+
+incomida(Y) :- comidaEspecifica(Restaurante,Y),write('Ese menu esta en el restaurante ',Restaurante).
+incomida([_|Resto]) :- incomida(Resto).
+
+inlugar(Y) :- lugarEspecifico(Restaurante,Y),write(Restaurante,' se encuentra cerca de usted').
+inlugar([_|Resto]) :- inlugar(Resto).
+
+
+
+
+
+

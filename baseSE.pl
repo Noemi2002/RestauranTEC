@@ -1,4 +1,3 @@
-%Base de datos completa (no se dividió)
 
 
 %Definición de la base de datos
@@ -34,8 +33,7 @@ palabra_clave(Palabra) :-
 
 % Predicado para extraer el valor asociado a una palabra clave
 extraer_valor(PalabraClave, [PalabraClave, Valor|_], Valor) :- !.
-extraer_valor(PalabraClave, [_|Resto], Valor) :-
-    extraer_valor(PalabraClave, Resto, Valor).
+extraer_valor(PalabraClave, [_|Resto], Valor) :- extraer_valor(PalabraClave, Resto, Valor).
 
 % Ejemplo de uso
 % Consulta para obtener la dirección del restaurante 'Mcdonalds'
@@ -59,6 +57,11 @@ obtener_disposiciones(Restaurante, Disposiciones) :-restaurante(Restaurante, _, 
 
 %Buscar una comida específica
 comidaEspecifica(Restaurante, TipoComida) :-restaurante(Restaurante, [_, _, Menu|_], _, _, _),  member(TipoComida, TipoCocina).
+
+%Busca la provinvia donde está el restaurante
+lugarEspecifico(Restaurante, Lugar) :-restaurante(Restaurante, _, _, [lugar, Lugar], _),  member(Lugar, Destino).
+
+
 
 
 

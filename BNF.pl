@@ -16,9 +16,8 @@ oracion(Oracion, Resultado) :- sintagma_descriptivo(Oracion, Res1), sintagma_pre
 oracion(Oracion, Resultado) :- despedida(Oracion, Resultado).
 oracion(Oracion, Resultado) :- despedida(Oracion, Res1), sustantivo(Res1, Resultado, _).
 
-saludo(Oracion, Resultado) :- saludar1(Oracion, Resultado).
-saludo(Oracion, Resultado) :- saludar2(Oracion, Res1), saludar3(Res1, Resultado).
-saludo(Oracion, Resultado) :- saludar4(Oracion, Res1), saludar5(Res1, Resultado).
+saludo(Oracion, Resultado) :- saludar(Oracion, Resultado).
+saludo(Oracion, Resultado) :- saludar1(Oracion, Res1), saludar2(Res1, Resultado).
 
 despedida(Oracion, Resultado) :- despedir(Oracion, Resultado).
 
@@ -35,6 +34,8 @@ sintagma_verbal(Oracion, Resultado):- verbo(Oracion, Resultado), verbo(Res1, Res
 
 
 sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Resultado, _).
+sintagma_nominal(Oracion, Resultado) :- pronombre(Oracion, Resultado).
+sintagma_nominal(Oracion, Resultado) :- propio(Oracion, Resultado).
 sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Resultado).
 sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Res2), sintagma_nominal(Res2, Resultado).
 sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(Res1, Res2), sintagma_verbal(Res2, Resultado).
@@ -60,6 +61,7 @@ sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Res1, _), adjetivo(R
 
 % Predicado para probar oraciones
 test :- write("Ingrese una oración: "), read(Oracion), oracion(Oracion, Resultado), write("La oración es válida."), nl, nl, test.
+
 
 
 %test :-
