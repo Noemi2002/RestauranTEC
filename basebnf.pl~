@@ -17,18 +17,19 @@ saludar5(["tardes"|Rest], Rest).
 saludar5(["noches"|Rest], Rest).
 
 % Despedidas
-despedir(["Adios"|Rest], Rest).
-despedir(["adios"|Rest], Rest).
-despedir(["Chao"|Rest], Rest).
-despedir(["chao"|Rest], Rest).
-despedir(["Hasta"|Rest], Rest).
-despedir(["hasta"|Rest], Rest).
-despedir(["luego"|Rest], Rest).
-despedir(["Muchas"|Rest], Rest).
-despedir(["muchas"|Rest], Rest).
-despedir(["Gracias"|Rest], Rest).
-despedir(["Hasta"|Rest], Rest).
-despedir(["hasta"|Rest], Rest).
+despedir1(["Adios"|Rest], Rest).
+despedir1(["adios"|Rest], Rest).
+despedir1(["Chao"|Rest], Rest).
+despedir1(["chao"|Rest], Rest).
+
+despedir2(["Hasta"|Rest], Rest).
+despedir2(["hasta"|Rest], Rest).
+despedir3(["luego"|Rest], Rest).
+
+despedir4(["Muchas"|Rest], Rest).
+despedir4(["muchas"|Rest], Rest).
+despedir5(["Gracias"|Rest], Rest).
+
 
 % Preposiciones
 preposicion(["En"|Rest], Rest).
@@ -64,55 +65,9 @@ verbo(Verbo, Conjugaciones, Rest) :-
     ]),
     Rest = [].
 
-
-
-
-
-
-
-
-
-
-
-%verbo(["comer"|Rest], Rest).
-%verbo(["desayunar"|Rest], Rest).
-%verbo(["almorzar"|Rest], Rest).
-%verbo(["cenar"|Rest], Rest).
-%verbo(["tomar"|Rest], Rest).
-%verbo(["visitar"|Rest], Rest).
-%verbo(["querer"|Rest], Rest).
-
-%Hacer sinónimos
-%verbo(["Quiero"|Rest], Rest).
-%verbo(["quiero"|Rest], Rest).
-%verbo(["Quisiera"|Rest], Rest).
-%verbo(["quisiera"|Rest], Rest).
-%verbo(["Queremos"|Rest], Rest).
-%verbo(["queremos"|Rest], Rest).
-%verbo(["Quisieran"|Rest], Rest).
-%verbo(["quisieran"|Rest], Rest).
-
-%verbo(["Estamos"|Rest], Rest).
-%verbo(["estamos"|Rest], Rest).
-
-%Sinónimos
-%sinonimo(tomar, beber).
-
 % Pronombres
 pronombre(Pronombre, Rest) :- member(Pronombre, ["Yo", "yo", "Él", "él", "Ella", "ella", "Nosotros", "nosotros", "Vosotros", "vosotros", "Ellos", "ellos", "Ellas", "ellas"]), Rest = [].
 
-%pronombre(["Yo"|Rest], Rest).
-%pronombre(["yo"|Rest], Rest).
-%pronombre(["Ella"|Rest], Rest).
-%pronombre(["ella"|Rest], Rest).
-%pronombre(["Él"|Rest], Rest).
-%pronombre(["él"|Rest], Rest).
-%pronombre(["Nosotros"|Rest], Rest).
-%pronombre(["nosotros"|Rest], Rest).
-%pronombre(["Ellos"|Rest], Rest).
-%pronombre(["ellos"|Rest], Rest).
-%pronombre(["Ellas"|Rest], Rest).
-%pronombre(["ellas"|Rest], Rest).
 
 % Adverbios
 adverbio(['hoy'|Rest], Rest).

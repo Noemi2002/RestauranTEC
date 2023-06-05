@@ -60,6 +60,10 @@ obtener_disposiciones(Restaurante, Disposiciones) :-restaurante(Restaurante, _, 
 %Buscar una comida específica
 comidaEspecifica(Restaurante, TipoComida) :-restaurante(Restaurante, [_, _, Menu|_], _, _, _),  member(TipoComida, TipoCocina).
 
+recomendarRestaurante(TipoComida, Restaurante) :-
+    restaurante(Restaurante, [_, _, Menu|_], _, _, _), member(TipoComida, Menu).
+
+
 
 
 

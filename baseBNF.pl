@@ -65,55 +65,9 @@ verbo(Verbo, Conjugaciones, Rest) :-
     ]),
     Rest = [].
 
-
-
-
-
-
-
-
-
-
-
-%verbo(["comer"|Rest], Rest).
-%verbo(["desayunar"|Rest], Rest).
-%verbo(["almorzar"|Rest], Rest).
-%verbo(["cenar"|Rest], Rest).
-%verbo(["tomar"|Rest], Rest).
-%verbo(["visitar"|Rest], Rest).
-%verbo(["querer"|Rest], Rest).
-
-%Hacer sinónimos
-%verbo(["Quiero"|Rest], Rest).
-%verbo(["quiero"|Rest], Rest).
-%verbo(["Quisiera"|Rest], Rest).
-%verbo(["quisiera"|Rest], Rest).
-%verbo(["Queremos"|Rest], Rest).
-%verbo(["queremos"|Rest], Rest).
-%verbo(["Quisieran"|Rest], Rest).
-%verbo(["quisieran"|Rest], Rest).
-
-%verbo(["Estamos"|Rest], Rest).
-%verbo(["estamos"|Rest], Rest).
-
-%Sinónimos
-%sinonimo(tomar, beber).
-
 % Pronombres
 pronombre(Pronombre, Rest) :- member(Pronombre, ["Yo", "yo", "Él", "él", "Ella", "ella", "Nosotros", "nosotros", "Vosotros", "vosotros", "Ellos", "ellos", "Ellas", "ellas"]), Rest = [].
 
-%pronombre(["Yo"|Rest], Rest).
-%pronombre(["yo"|Rest], Rest).
-%pronombre(["Ella"|Rest], Rest).
-%pronombre(["ella"|Rest], Rest).
-%pronombre(["Él"|Rest], Rest).
-%pronombre(["él"|Rest], Rest).
-%pronombre(["Nosotros"|Rest], Rest).
-%pronombre(["nosotros"|Rest], Rest).
-%pronombre(["Ellos"|Rest], Rest).
-%pronombre(["ellos"|Rest], Rest).
-%pronombre(["Ellas"|Rest], Rest).
-%pronombre(["ellas"|Rest], Rest).
 
 % Adverbios
 adverbio(['hoy'|Rest], Rest).
@@ -155,15 +109,15 @@ sustantivo([Rest|'vegana'], Rest, f).
 sustantivo(['Comida gourmet y opciones sin gluten'|Rest], Rest, f).
 
 % Determinantes
-determinante(["alguna"|Rest], Rest, f).
-determinante(["alguno"|Rest], Rest, m).
-determinante(["la"|Rest], Rest, f).
-determinante(["las"|Rest], Rest, f).
-determinante(["una"|Rest], Rest, f).
-determinante(["unas"|Rest], Rest, f).
-determinante(["tengo"|Rest], Rest, no).
-determinante(["el"|Rest], Rest, f).
-determinante(["los"|Rest], Rest, f).
+determinante([alguna|Rest], Rest, f).
+determinan([algun|Rest], Rest, m).
+determinante([alguno|Rest], Rest, m).
+determinante([la|Rest], Rest, f).
+determinante([las|Rest], Rest, f).
+determinante([una|Rest], Rest, f).
+determinante([unas|Rest], Rest, f).
+determinante([el|Rest], Rest, f).
+determinante([los|Rest], Rest, f).
 
 %Adejativos
 adjetivo(delicioso).

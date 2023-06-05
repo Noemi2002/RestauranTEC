@@ -35,9 +35,11 @@ sintagma_descriptivo(Oracion, Resultado) :- adverbio(Oracion, Res1), verbo(Res1,
 sintagma_descriptivo(Oracion, Resultado):- verbo(Oracion, Rest1), adjetivo(Rest1, Resultado).
 sintagma_descriptivo(Oracion, Resultado) :- adverbio(Oracion, Res1), determinante(Res1, Resultado, _).
 
-sintagma_nominal(Oracion, Resultado):- determinante(Oracion, Rest1, Genero), sustantivo(Rest1, Resultado, Genero).
-sintagma_nominal(Oracion, Resultado):- determinante(Oracion, Rest1, _), sustantivo(Rest1, Resultado, _). %no importa el genero
-sintagma_nominal(Oracion, Resultado):- determinante(Oracion, Rest1, _), verbo(Rest1, Resultado).
+
+
+sintagma_nominal(Oracion, Resultado) :- determinante(Oracion, Rest1, Genero), sustantivo(Rest1, Resultado, Genero).
+sintagma_nominal(Oracion, Resultado) :- determinante(Oracion, Rest1, _), sustantivo(Rest1, Resultado, _).
+sintagma_nominal(Oracion, Resultado) :- determinante(Oracion, Rest1, _), verbo(Rest1, Resultado).
 
 
 % sintagma_nominal(Oracion, Resultado) :- sustantivo(Oracion, Resultado,
@@ -91,6 +93,9 @@ test :- write("Ingrese una oración: "), read(Oracion), oracion(Oracion, Resultad
     %write('La oración es válida.'),
     %nl,
     %test.
+
+
+
 
 
 
