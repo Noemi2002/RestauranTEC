@@ -21,13 +21,12 @@ restaurante('La Casona Mexicana', [menu, 'comida mexicana', ['tacos', 'alambres'
 restaurante('PetFriendly Bistro', [menu, 'Comida gourmet y opciones sin gluten', ['salmon', 'Ensalada de quinoa', 'Postre sin azúcar']], [direccion, 'Santa Ana'], [lugar, 'San Jose'], [disposiciones, ['Pet-friendly', 'Área específica para mascotas']]).
 
 %--------------------
-%alimento(Oración, Oración preliminar, Palabra(s) clave).
+
 
 alimento(S0,S,Claves):-
     pronombre(S0,S1),
     sintagma_verbal(S1,S2),
     sintagma_nominal(S2,S, Claves, _Gen), !.
-                  %Género, número, estado del nombre
 
 alimento(S0,S, Claves):-
     sintagma_verbal(S0,S1),
@@ -43,15 +42,15 @@ alimento(_S0,_S,_Claves):-
 
 
 
-%--------
+%--------}
 
-ubicacion(S0,S,S1):-
-    preposicion(S0,S1),
-    obtenerLugar(_, S), !.
+ubicacion(S0, S, S1) :-
+    preposicion(S0, S1),
+    obtenerLugar(_, S).
 
+ubicacion(S0, S, S0) :-
+    obtenerLugar(_, S).
 
-
-ubicacion(S0,S,S0):- obtenerLugar(_, S), !.
 
 %----------------------
 %---Sintagma nominal---
@@ -211,6 +210,9 @@ obtenerDireccion(Restaurante, Direccion) :-restaurante(Restaurante, _, [direccio
 %Para obtener la provinvia donde está el restaurante
 obtenerLugar(Restaurante, Lugar) :-restaurante(Restaurante, _, _, [lugar, Lugar], _).
 
+obtenerLugar(Restaurante, Lugar) :-  write("Lo sentimos, no se conoce algún restaurante con ese tipo específico de comida en ese lugar"), nl, nl,
+    restaurantec.
+
 %Para obtener ciertas disposiciones de los restaurantes
 obtener_disposiciones(Restaurante, Disposiciones) :-restaurante(Restaurante, _, _, _, [disposiciones, Disposiciones]).
 
@@ -218,11 +220,12 @@ obtener_disposiciones(Restaurante, Disposiciones) :-restaurante(Restaurante, _, 
 comidaEspecifica(Restaurante, TipoComida) :-restaurante(Restaurante, [_, _, Menu|_], _, _, _),  member(TipoComida, Menu).
 
 comidaEspecifica(_K,_Y):-
-    write("Lo sentimos, no se conoce algún restaurante con ese tipo específico de alimentación"), nl, nl,
+    write("Lo sentimos, no se conoce algún restaurante con ese tipo específico de comida"), nl, nl,
     restaurantec.
 
-validarlugar(K, Y):-
-    obtenerLugar(K, Y), !.
+validarlugar(K, Y) :-
+    ubicacion(_, Y, _),
+    obtenerLugar(K, Y).
 
 
 validarlugar(_K,_Y):-
@@ -238,7 +241,7 @@ validarlugar(_K,_Y):-
 % Restricciones: Contempladas en las validaciones
 
 restaurantec:-
-    write("¡Hola! ¿Qué desea comer hoy? Escriba su preferencia entre comillas, todo en minúscula, excepto los nombres propios, y con punto final por favor."), nl,
+    write("¡Bienvenido! ¿Que te se antoja comer hoy? Escriba su preferencia entre comillas, todo en minúscula, y con punto final por favor."), nl,
 
     read(InputAlimento),
     % InputAlimento es el input de usuario de preferencia de alimento
@@ -266,17 +269,17 @@ restaurantec:-
     %P será el lugar clave como string
     atom_string(LugarClave, P),
 
-    validarlugar(K, P),
+    obtenerLugar(K, P),
 
 
 
 
-    %K es el nombre del restaurante y S su dirección
-    obtenerDireccion(K,S),
+    %nombre del restaurante y dirección
+    obtenerDireccion(N,D),
 
-    atom_concat("Nuestra sugerencia es: Restaurante ", K, O1),
+    atom_concat("Nuestra sugerencia es: Restaurante ", N, O1),
     atom_concat(O1, " que se ubica ", O2),
-    atom_concat(O2, S, O3),
+    atom_concat(O2, D, O3),
 
     %O3 es la frase completa de la recomendación
     write(O3), nl,
